@@ -1,7 +1,7 @@
 # InfaDebloater V1
 
 ## Usage:
-1. Clone the report
+1. Clone the repo
 ```
 https://github.com/Infamousmick/InfaDebloater.git
 ```
