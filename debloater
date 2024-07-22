@@ -1,0 +1,54 @@
+#!/bin/bash
+help() {
+  printf "Usage: infa -${GREEN}<1stargument>${RESET} ${RED}<2ndargument>${RESET}\n-${GREEN}d${RESET} Download InfaScripts\n-${GREEN}s${RESET} Starts InfaScripts\n-${GREEN}u${RESET} Update InfaScripts\n-${GREEN}r${RESET} Remove InfaScripts\n-${GREEN}h${RESET} Help\n-${GREEN}c${RESET} Contacts   ${RED}i${RESET} Open InfamousMick tg link
+              ${RED}r${RESET} Open Ravindu Deshan tg link
+              ${RED}I${RESET} Open InfaChannel tg link
+              ${RED}R${RESET} Open Samsung & Android Tweaks tg link\n"
+  exit 1
+}
+confirm() {
+  printf "${BLUE}Are you sure? (Y/n): ${RESET}"
+  read -n 1 choice
+  echo
+  case "$choice" in
+    y|Y) return 0 ;;
+    n|N) exit 0 ;;
+    *) confirm ;;
+  esac
+}
+
+# Verifica se sono stati forniti argomenti
+if [ "$#" -eq 0 ]; then
+  help
+elif [ "$1" == "enable" ]; then
+  confirm
+  su -c sh $HOME/infaDebloater/debloater.sh enable app_list.txt
+elif [ "$1" == "disable" ]; then
+  confirm
+  su -c sh $HOME/infaDebloater/debloater.sh disable app_list.txt
+elif [ "$1" == "install" ]; then
+  confirm
+  su -c sh $HOME/infaDebloater/debloater.sh install app_list.txt
+elif [ "$1" == "uninstall" ]; then
+  confirm
+  su -c sh $HOME/infaDebloater/debloater.sh uninstall app_list.txt
+elif [ "$1" == "-c" ] && [ "$#" -ge 2 ]; then
+  confirm
+  if [ "$2" == "i" ]; then
+    link="https://t.me/InfamousMick"
+    xdg-open "$link"
+  elif [ "$2" == "r" ]; then
+    link="https://t.me/Ravindu_Deshan"
+    xdg-open "$link"
+  elif  [ "$2" == "I" ]; then
+    link="https://t.me/InfaScript_channel"
+    xdg-open "$link"
+  elif  [ "$2" == "R" ]; then
+    link="https://t.me/SamsungTweaks"
+    xdg-open "$link"
+  else
+    help
+  fi
+else
+  help
+fi
