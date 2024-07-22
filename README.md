@@ -6,7 +6,7 @@
 https://github.com/Infamousmick/InfaDebloater.git
 ```
 ```
-curl -sSL https://raw.githubusercontent.com/Infamousmick/InfaDebloater/blob/Start/debloater
+curl -sSL https://raw.githubusercontent.com/Infamousmick/InfaDebloater/Start/debloater
 ```
 2. Mod app_list.txt as your preferences
 3. Chmod
