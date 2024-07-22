@@ -1,8 +1,12 @@
 # InfaDebloater V1
 
 ## Usage:
-1. Mod app_list.txt
-2. Chmod
+1. Clone the report
+```
+https://github.com/Infamousmick/InfaDebloater.git
+```
+2. Mod app_list.txt as your preferences
+3. Chmod
 ```
 su -c chmod +x debloater.sh
 ```
